@@ -1,12 +1,15 @@
 import React from "react";
 import { Composition } from "remotion";
 import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
+import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
+import { SoftGradientLoop, defaultGradientProps } from "./compositions/SoftGradientLoop";
+import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
 import { STOCK_PRESETS } from "./presets";
 
 export const Root: React.FC = () => {
   return (
     <>
-      {/* Default 4K Composition (3840x2160, 30fps, 10 seconds = 300 frames) */}
+      {/* 1. Cyber Grid (Landscape 4K & Vertical) */}
       <Composition
         id="CyberGrid"
         component={CyberGrid}
@@ -16,22 +19,6 @@ export const Root: React.FC = () => {
         height={2160}
         defaultProps={defaultCyberGridProps}
       />
-
-      {/* Preset Compositions for 1-Click Studio Previews & Renders */}
-      {STOCK_PRESETS.map((preset) => (
-        <Composition
-          key={preset.id}
-          id={preset.id}
-          component={CyberGrid}
-          durationInFrames={300}
-          fps={30}
-          width={3840}
-          height={2160}
-          defaultProps={preset.props}
-        />
-      ))}
-
-      {/* Vertical 9:16 Version (1080x1920) for Social / Shorts Stock */}
       <Composition
         id="CyberGrid-Vertical"
         component={CyberGrid}
@@ -45,6 +32,87 @@ export const Root: React.FC = () => {
           starCount: 100,
         }}
       />
+
+      {/* 2. Gold Awards Particles & Bokeh (Landscape 4K & Vertical) */}
+      <Composition
+        id="GoldParticles"
+        component={GoldParticles}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultGoldParticleProps}
+      />
+      <Composition
+        id="GoldParticles-Vertical"
+        component={GoldParticles}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          ...defaultGoldParticleProps,
+          particleCount: 120,
+          bokehCount: 20,
+        }}
+      />
+
+      {/* 3. Soft Blurred Gradient Cycle (Landscape 4K & Vertical) */}
+      <Composition
+        id="SoftGradientLoop"
+        component={SoftGradientLoop}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultGradientProps}
+      />
+      <Composition
+        id="SoftGradientLoop-Vertical"
+        component={SoftGradientLoop}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={defaultGradientProps}
+      />
+
+      {/* 4. Digital Tech Audio Wave / Optical Fiber (Landscape 4K & Vertical) */}
+      <Composition
+        id="AudioWaveTech"
+        component={AudioWaveTech}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultAudioWaveProps}
+      />
+      <Composition
+        id="AudioWaveTech-Vertical"
+        component={AudioWaveTech}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          ...defaultAudioWaveProps,
+          amplitude: 100,
+        }}
+      />
+
+      {/* Preset Variations */}
+      {STOCK_PRESETS.map((preset) => (
+        <Composition
+          key={preset.id}
+          id={preset.id}
+          component={CyberGrid}
+          durationInFrames={300}
+          fps={30}
+          width={3840}
+          height={2160}
+          defaultProps={preset.props}
+        />
+      ))}
     </>
   );
 };

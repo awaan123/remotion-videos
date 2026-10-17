@@ -4,20 +4,20 @@ import path from "path";
 
 const presets = [
   {
-    id: "cyber-grid-cyan-blue-4k",
-    filename: "cyber_grid_cyan_blue_loop_4k.mp4",
+    id: "CyberGrid",
+    filename: "cyber_grid_blue_4k.mp4",
   },
   {
-    id: "cyber-grid-gold-luxury-4k",
-    filename: "cyber_grid_gold_luxury_loop_4k.mp4",
+    id: "GoldParticles",
+    filename: "gold_particles_awards_bokeh_4k.mp4",
   },
   {
-    id: "cyber-grid-matrix-green-4k",
-    filename: "cyber_grid_matrix_green_loop_4k.mp4",
+    id: "SoftGradientLoop",
+    filename: "soft_gradient_magenta_blue_cycle_4k.mp4",
   },
   {
-    id: "cyber-grid-synthwave-magenta-4k",
-    filename: "cyber_grid_synthwave_magenta_loop_4k.mp4",
+    id: "AudioWaveTech",
+    filename: "optical_fiber_audio_wave_tech_4k.mp4",
   },
 ];
 
@@ -26,7 +26,7 @@ if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
 }
 
-console.log(`Starting Batch Render of ${presets.length} 4K Stock Assets...`);
+console.log(`Starting Batch Render of ${presets.length} Master 4K Stock Assets...`);
 
 for (let i = 0; i < presets.length; i++) {
   const p = presets[i];
@@ -37,7 +37,7 @@ for (let i = 0; i < presets.length; i++) {
     execSync(`npx remotion render ${p.id} "${target}"`, {
       stdio: "inherit",
     });
-    console.log(`Done: ${p.filename}`);
+    console.log(`Successfully rendered: ${p.filename}`);
   } catch (err) {
     console.error(`Failed to render ${p.id}:`, err);
   }
@@ -46,4 +46,4 @@ for (let i = 0; i < presets.length; i++) {
 // Generate companion CSV
 console.log("\nGenerating companion Adobe Stock CSV...");
 execSync("node scripts/generate-csv.mjs", { stdio: "inherit" });
-console.log("Batch production complete! All files ready in ./out");
+console.log("All 4 assets and metadata CSV ready in ./out");

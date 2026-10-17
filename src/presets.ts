@@ -1,78 +1,51 @@
-import { CyberGridProps } from "./compositions/CyberGrid";
-
-export interface StockAssetPreset {
+export interface StockPresetItem {
   id: string;
   filename: string;
   compositionId: string;
-  props: CyberGridProps;
   title: string;
   keywords: string;
-  category: number; // 15 = Technology & Infographics in Adobe Stock
+  category: number;
 }
 
-export const STOCK_PRESETS: StockAssetPreset[] = [
+export const ALL_STOCK_PRESETS: StockPresetItem[] = [
+  // 1. Cyber Grid
   {
-    id: "cyber-grid-cyan-blue-4k",
-    filename: "cyber_grid_cyan_blue_loop_4k.mp4",
+    id: "CyberGrid",
+    filename: "cyber_grid_blue_4k.mp4",
     compositionId: "CyberGrid",
-    props: {
-      primaryColor: "#00f2fe",
-      secondaryColor: "#3b82f6",
-      speed: 1,
-      gridDensity: 32,
-      starCount: 160,
-    },
     title: "Abstract Blue Cyber Technology Network Grid Seamless Loop 4K",
     keywords:
-      "seamless loop, abstract background, cyber grid, data network, technology, blue, glowing, futuristic, 4k, ultra hd, motion graphics, copy space, digital floor, cyberspace, internet, perspective, neon",
+      "seamless loop, abstract background, cyber grid, data network, technology, blue, glowing, futuristic, 4k, ultra hd, motion graphics, copy space, digital floor, cyberspace",
     category: 15,
   },
+  // 2. Gold Particles & Awards Bokeh
   {
-    id: "cyber-grid-gold-luxury-4k",
-    filename: "cyber_grid_gold_luxury_loop_4k.mp4",
-    compositionId: "CyberGrid",
-    props: {
-      primaryColor: "#fbbf24",
-      secondaryColor: "#f59e0b",
-      speed: 1,
-      gridDensity: 32,
-      starCount: 160,
-    },
-    title: "Abstract Gold Cyber Luxury Grid Background Seamless Loop 4K",
+    id: "GoldParticles",
+    filename: "gold_particles_awards_bokeh_4k.mp4",
+    compositionId: "GoldParticles",
+    title: "Gold Particles Abstract Background Golden Floor Dust Bokeh Loop 4K",
     keywords:
-      "seamless loop, abstract background, gold grid, luxury, technology, yellow, glowing, futuristic, 4k, ultra hd, motion graphics, wealth, finance, fintech, crypto, perspective, elegant, dark mode",
+      "seamless loop, gold particles, abstract background, shining golden floor, particle stars, dust, futuristic, glittering, fly movement, flickering, space, black background, 4k, awards",
     category: 15,
   },
+  // 3. Soft Blurred Gradient
   {
-    id: "cyber-grid-matrix-green-4k",
-    filename: "cyber_grid_matrix_green_loop_4k.mp4",
-    compositionId: "CyberGrid",
-    props: {
-      primaryColor: "#10b981",
-      secondaryColor: "#059669",
-      speed: 1,
-      gridDensity: 32,
-      starCount: 160,
-    },
-    title: "Cyber Security Matrix Green Grid Network Seamless Loop 4K",
+    id: "SoftGradientLoop",
+    filename: "soft_gradient_magenta_blue_cycle_4k.mp4",
+    compositionId: "SoftGradientLoop",
+    title: "Abstract Blurred Magenta Blue Orange Soft Gradient Cycle Loop 4K",
     keywords:
-      "seamless loop, cyber security, matrix green, abstract background, technology, glowing grid, coding, programming, hacker, digital network, 4k, ultra hd, motion graphics, cyberspace, data stream",
+      "seamless loop, abstract blurred, magenta, blue, orange, soft gradient cycle, slow motion, background loop, holographic, colorful backdrop, 4k, ultra hd, modern, aesthetic",
     category: 15,
   },
+  // 4. Optical Fiber / Audio Wave
   {
-    id: "cyber-grid-synthwave-magenta-4k",
-    filename: "cyber_grid_synthwave_magenta_loop_4k.mp4",
-    compositionId: "CyberGrid",
-    props: {
-      primaryColor: "#f43f5e",
-      secondaryColor: "#8b5cf6",
-      speed: 1,
-      gridDensity: 32,
-      starCount: 160,
-    },
-    title: "Synthwave Retro 80s Cyber Neon Grid Seamless Loop 4K",
+    id: "AudioWaveTech",
+    filename: "optical_fiber_audio_wave_tech_4k.mp4",
+    compositionId: "AudioWaveTech",
+    title: "Abstract Blue Wave Technology Background Digital Audio Line Loop 4K",
     keywords:
-      "seamless loop, synthwave, retrowave, neon grid, magenta, purple, 80s background, futuristic, cyber, motion graphics, 4k, ultra hd, glowing, arcade, electronic music backdrop, copy space",
+      "seamless loop, abstract wave, technology background, blue light, digital effect, corporate concept, optical fiber, signal transmission, geometric line, 4k, ultra hd, motion design",
     category: 15,
   },
 ];
