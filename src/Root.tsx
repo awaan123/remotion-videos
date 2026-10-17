@@ -4,6 +4,8 @@ import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
 import { SoftGradientLoop, defaultGradientProps } from "./compositions/SoftGradientLoop";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
+import { NeonArrowsTunnel, defaultNeonArrowsProps } from "./compositions/NeonArrowsTunnel";
+import { HyperspaceWarp, defaultHyperspaceProps } from "./compositions/HyperspaceWarp";
 
 export const Root: React.FC = () => {
   return (
@@ -96,6 +98,52 @@ export const Root: React.FC = () => {
         defaultProps={{
           ...defaultAudioWaveProps,
           amplitude: 100,
+        }}
+      />
+
+      {/* 5. Neon Chevron Arrows Tunnel (Landscape 4K & Vertical) */}
+      <Composition
+        id="NeonArrowsTunnel"
+        component={NeonArrowsTunnel}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultNeonArrowsProps}
+      />
+      <Composition
+        id="NeonArrowsTunnel-Vertical"
+        component={NeonArrowsTunnel}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          ...defaultNeonArrowsProps,
+          arrowCount: 12,
+        }}
+      />
+
+      {/* 6. Hyperspace Lightspeed Jump Tunnel (Landscape 4K & Vertical) */}
+      <Composition
+        id="HyperspaceWarp"
+        component={HyperspaceWarp}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultHyperspaceProps}
+      />
+      <Composition
+        id="HyperspaceWarp-Vertical"
+        component={HyperspaceWarp}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          ...defaultHyperspaceProps,
+          starCount: 200,
         }}
       />
     </>

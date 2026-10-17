@@ -48,4 +48,24 @@ export const ALL_STOCK_PRESETS: StockPresetItem[] = [
       "seamless loop, abstract wave, technology background, blue light, digital effect, corporate concept, optical fiber, signal transmission, geometric line, 4k, ultra hd, motion design",
     category: 15,
   },
+  // 5. Neon Chevron Arrows Tunnel
+  {
+    id: "NeonArrowsTunnel",
+    filename: "neon_arrows_tunnel_4k.mp4",
+    compositionId: "NeonArrowsTunnel",
+    title: "Abstract Glowing Motion Design with Blue Purple Neon Arrows Tunnel 4K",
+    keywords:
+      "seamless loop, abstract glowing, motion design, blue purple, neon arrows, chevron tunnel, futuristic, cyber corridor, 4k, ultra hd, perspective, electronic, party backdrop",
+    category: 15,
+  },
+  // 6. Hyperspace Lightspeed Jump Tunnel
+  {
+    id: "HyperspaceWarp",
+    filename: "hyperspace_lightspeed_tunnel_4k.mp4",
+    compositionId: "HyperspaceWarp",
+    title: "Hyperspace Jump Flying Through Lightspeed Starfield Tunnel Loop 4K",
+    keywords:
+      "seamless loop, hyperspace jump, flying through space, lightspeed tunnel, starfield, acceleration, spaceship, speed of light, cosmic void, universe, screensaver, 4k, sci fi",
+    category: 15,
+  },
 ];

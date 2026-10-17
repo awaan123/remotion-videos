@@ -19,6 +19,14 @@ const presets = [
     id: "AudioWaveTech",
     filename: "optical_fiber_audio_wave_tech_4k.mp4",
   },
+  {
+    id: "NeonArrowsTunnel",
+    filename: "neon_arrows_tunnel_4k.mp4",
+  },
+  {
+    id: "HyperspaceWarp",
+    filename: "hyperspace_lightspeed_tunnel_4k.mp4",
+  },
 ];
 
 const outDir = path.resolve("./out");
@@ -46,4 +54,4 @@ for (let i = 0; i < presets.length; i++) {
 // Generate companion CSV
 console.log("\nGenerating companion Adobe Stock CSV...");
 execSync("node scripts/generate-csv.mjs", { stdio: "inherit" });
-console.log("All 4 assets and metadata CSV ready in ./out");
+console.log("All assets and metadata CSV ready in ./out");

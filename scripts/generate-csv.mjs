@@ -30,6 +30,20 @@ const presets = [
       "seamless loop, abstract wave, technology background, blue light, digital effect, corporate concept, optical fiber, signal transmission, geometric line, 4k, ultra hd, motion design",
     category: 15,
   },
+  {
+    filename: "neon_arrows_tunnel_4k.mp4",
+    title: "Abstract Glowing Motion Design with Blue Purple Neon Arrows Tunnel 4K",
+    keywords:
+      "seamless loop, abstract glowing, motion design, blue purple, neon arrows, chevron tunnel, futuristic, cyber corridor, 4k, ultra hd, perspective, electronic, party backdrop",
+    category: 15,
+  },
+  {
+    filename: "hyperspace_lightspeed_tunnel_4k.mp4",
+    title: "Hyperspace Jump Flying Through Lightspeed Starfield Tunnel Loop 4K",
+    keywords:
+      "seamless loop, hyperspace jump, flying through space, lightspeed tunnel, starfield, acceleration, spaceship, speed of light, cosmic void, universe, screensaver, 4k, sci fi",
+    category: 15,
+  },
 ];
 
 const outDir = path.resolve("./out");
@@ -51,4 +65,4 @@ const csvRows = presets
 const outputPath = path.join(outDir, "adobe_stock_metadata.csv");
 fs.writeFileSync(outputPath, csvHeader + csvRows, "utf-8");
 
-console.log(`Adobe Stock CSV Generated with all 4 templates! Saved to: ${outputPath}`);
+console.log(`Adobe Stock CSV Generated with all 6 templates! Saved to: ${outputPath}`);
