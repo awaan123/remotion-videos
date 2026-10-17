@@ -2,22 +2,10 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 
+// Define compositions to render in this batch
 const presets = [
-  // 1. Strong Rain at Night (URL 197058599)
-  {
-    id: "StrongRainNight",
-    filename: "strong_rain_at_night_cinematic_4k.mp4",
-  },
-  // 2. Abstract Glowing Neon Arrows (URL 381536144)
-  {
-    id: "NeonArrowsTunnel",
-    filename: "abstract_glowing_neon_arrows_loop_4k.mp4",
-  },
-  // 3. 4K Abstract Swirls (URL 220530931)
-  {
-    id: "AbstractSwirls4K",
-    filename: "abstract_chromatic_swirls_flow_4k.mp4",
-  },
+  // Example for future batch:
+  // { id: "StrongRainNight", filename: "strong_rain_at_night_cinematic_4k.mp4" },
 ];
 
 const outDir = path.resolve("./out");
@@ -25,12 +13,30 @@ if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
 }
 
-console.log(`Starting Batch Render of ${presets.length} New 4K UHD Stock Videos...`);
+// Automatically detect the next batch folder name (e.g. batch_01, batch_02, ...)
+const existingBatches = fs
+  .readdirSync(outDir, { withFileTypes: true })
+  .filter((d) => d.isDirectory() && /^batch_\d+$/.test(d.name))
+  .map((d) => parseInt(d.name.replace("batch_", ""), 10));
+
+const nextBatchNum = existingBatches.length > 0 ? Math.max(...existingBatches) + 1 : 1;
+const batchFolderName = `batch_${String(nextBatchNum).padStart(2, "0")}`;
+const batchDir = path.join(outDir, batchFolderName);
+
+if (presets.length === 0) {
+  console.log(`Current batch directory is ready: ${batchFolderName}`);
+  console.log("Add compositions to the presets array in scripts/render-batch.mjs to render next batch.");
+  process.exit(0);
+}
+
+fs.mkdirSync(batchDir, { recursive: true });
+
+console.log(`Starting Batch Render into ${batchFolderName} (${presets.length} 4K UHD Videos)...`);
 
 for (let i = 0; i < presets.length; i++) {
   const p = presets[i];
-  const target = path.join(outDir, p.filename);
-  console.log(`\n[${i + 1}/${presets.length}] Rendering: ${p.id} -> ${p.filename}...`);
+  const target = path.join(batchDir, p.filename);
+  console.log(`\n[${i + 1}/${presets.length}] Rendering: ${p.id} -> ${batchFolderName}/${p.filename}...`);
 
   try {
     execSync(`npx remotion render ${p.id} "${target}"`, {
@@ -42,7 +48,7 @@ for (let i = 0; i < presets.length; i++) {
   }
 }
 
-// Generate companion CSV
-console.log("\nGenerating companion Adobe Stock CSV...");
-execSync("node scripts/generate-csv.mjs", { stdio: "inherit" });
-console.log("\nAll requested 4K UHD videos and metadata CSV ready in ./out");
+// Generate companion CSV inside the specific batch folder
+console.log(`\nGenerating companion Adobe Stock CSV for ${batchFolderName}...`);
+execSync(`node scripts/generate-csv.mjs "${batchDir}"`, { stdio: "inherit" });
+console.log(`\nAll batch videos and metadata CSV ready in ${batchDir}`);

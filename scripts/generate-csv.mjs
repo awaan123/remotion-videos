@@ -116,7 +116,12 @@ const csvRows = presets
   )
   .join("\n");
 
-const outputPath = path.join(outDir, "adobe_stock_metadata.csv");
+const targetDir = process.argv[2] ? path.resolve(process.argv[2]) : outDir;
+if (!fs.existsSync(targetDir)) {
+  fs.mkdirSync(targetDir, { recursive: true });
+}
+
+const outputPath = path.join(targetDir, "adobe_stock_metadata.csv");
 fs.writeFileSync(outputPath, csvHeader + csvRows, "utf-8");
 
 console.log(`Adobe Stock CSV Generated! Saved to: ${outputPath}`);
