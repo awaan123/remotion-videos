@@ -3,25 +3,30 @@ import fs from "fs";
 import path from "path";
 
 const presets = [
-  {
-    id: "SoftGradientLoop",
-    filename: "soft_gradient_magenta_blue_cycle_4k.mp4",
-  },
-  {
-    id: "WaterDropletsExplosion",
-    filename: "explosion_water_droplets_slow_motion_4k.mp4",
-  },
-  {
-    id: "NeonLowPolyMesh",
-    filename: "neon_low_poly_communication_mesh_4k.mp4",
-  },
-  {
-    id: "BlueNeonStripes",
-    filename: "blue_neon_glowing_stripes_motion_4k.mp4",
-  },
+  // 1. Rainbow Colored Ink in Water (URL 327663872)
   {
     id: "RainbowInkInWater",
     filename: "rainbow_colored_ink_in_water_dispersion_4k.mp4",
+  },
+  // 2. Neon Dots Spiral Tunnel with Metal Floor (URL 302044677)
+  {
+    id: "NeonDotsSpiralTunnel",
+    filename: "neon_dots_spiral_tunnel_metal_floor_4k.mp4",
+  },
+  // 3. Underwater Slow Motion Bubbles in Turquoise Pool (URL 384830287)
+  {
+    id: "UnderwaterBubblesTurquoise",
+    filename: "underwater_bubbles_turquoise_pool_4k.mp4",
+  },
+  // 4. Fire Embers & Sparks Flying in Wind (URL 355415262)
+  {
+    id: "FireEmbersWind",
+    filename: "particles_flying_in_wind_fire_embers_4k.mp4",
+  },
+  // 5. Gold Particles Shining Floor Loop (URL 316569921)
+  {
+    id: "GoldParticles",
+    filename: "gold_particles_shining_floor_loop_4k.mp4",
   },
 ];
 
@@ -30,7 +35,7 @@ if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
 }
 
-console.log(`Starting Batch Render of ${presets.length} Requested 4K Stock Videos...`);
+console.log(`Starting Batch Render of ${presets.length} Requested 4K UHD Stock Videos...`);
 
 for (let i = 0; i < presets.length; i++) {
   const p = presets[i];
@@ -50,4 +55,4 @@ for (let i = 0; i < presets.length; i++) {
 // Generate companion CSV
 console.log("\nGenerating companion Adobe Stock CSV...");
 execSync("node scripts/generate-csv.mjs", { stdio: "inherit" });
-console.log("\nAll requested 4K videos and metadata CSV ready in ./out");
+console.log("\nAll requested 4K UHD videos and metadata CSV ready in ./out");

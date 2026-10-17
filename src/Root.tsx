@@ -5,6 +5,9 @@ import { WaterDropletsExplosion, defaultWaterDropletsProps } from "./composition
 import { NeonLowPolyMesh, defaultLowPolyProps } from "./compositions/NeonLowPolyMesh";
 import { BlueNeonStripes, defaultNeonStripesProps } from "./compositions/BlueNeonStripes";
 import { RainbowInkInWater } from "./compositions/RainbowInkInWater";
+import { NeonDotsSpiralTunnel } from "./compositions/NeonDotsSpiralTunnel";
+import { UnderwaterBubblesTurquoise } from "./compositions/UnderwaterBubblesTurquoise";
+import { FireEmbersWind } from "./compositions/FireEmbersWind";
 import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
@@ -114,6 +117,46 @@ export const Root: React.FC = () => {
         height={2160}
         defaultProps={{
           backgroundColor: "#000000",
+        }}
+      />
+
+      {/* 6. Neon Dots Spiral Tunnel with Metal Floor (URL 302044677) */}
+      <Composition
+        id="NeonDotsSpiralTunnel"
+        component={NeonDotsSpiralTunnel}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          ringCount: 36,
+          dotsPerRing: 48,
+        }}
+      />
+
+      {/* 7. Underwater Slow Motion Bubbles in Turquoise Pool (URL 384830287) */}
+      <Composition
+        id="UnderwaterBubblesTurquoise"
+        component={UnderwaterBubblesTurquoise}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          bubbleCount: 350,
+        }}
+      />
+
+      {/* 8. Fire Embers & Sparks Flying in Wind (URL 355415262) */}
+      <Composition
+        id="FireEmbersWind"
+        component={FireEmbersWind}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          particleCount: 500,
         }}
       />
 
