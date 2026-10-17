@@ -8,6 +8,8 @@ import { RainbowInkInWater } from "./compositions/RainbowInkInWater";
 import { NeonDotsSpiralTunnel } from "./compositions/NeonDotsSpiralTunnel";
 import { UnderwaterBubblesTurquoise } from "./compositions/UnderwaterBubblesTurquoise";
 import { FireEmbersWind } from "./compositions/FireEmbersWind";
+import { StrongRainNight } from "./compositions/StrongRainNight";
+import { AbstractSwirls4K } from "./compositions/AbstractSwirls4K";
 import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
@@ -157,6 +159,32 @@ export const Root: React.FC = () => {
         height={2160}
         defaultProps={{
           particleCount: 500,
+        }}
+      />
+
+      {/* 9. Strong Rain at Night (URL 197058599) */}
+      <Composition
+        id="StrongRainNight"
+        component={StrongRainNight}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          streakCount: 2200,
+        }}
+      />
+
+      {/* 10. 4K Abstract Swirls (URL 220530931) */}
+      <Composition
+        id="AbstractSwirls4K"
+        component={AbstractSwirls4K}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          armCount: 18,
         }}
       />
 

@@ -66,12 +66,36 @@ const presets = [
       "fire, embers, sparks, particles, flying in wind, wind, flame, burning, heat, hot, blaze, inferno, smoke, ash, bonfire, campfire, glowing, orange, red, yellow, golden, dark background, isolated, black background, cinematic, slow motion, vfx, overlay, visual effect, energy, warmth, danger, action, dynamic, turbulent, motion, loop, seamless, 4k, ultra hd, explosive, combustion, ignite, fiery, sparks flying, flying particles, glow, blast, atmospheric",
     category: 8,
   },
-  // 9. Luxury Gold Particles Shining Floor Loop (URL 316569921)
+  // 9. Luxury Gold Particles Dust on Floor (URL 316569921)
   {
     filename: "gold_particles_shining_floor_loop_4k.mp4",
     title: "Luxury Gold Particles Shining Floor Glitter Dust Loop 4K",
     keywords:
       "gold particles, abstract background, shining, golden floor, particle stars, dust, futuristic, glittering, fly movement, flickering, loop, seamless, space, black background, luxury, glamour, award, elegant, bokeh, shimmer, sparkle, magic, celebration, christmas, new year, party, rich, wealth, vip, 4k, ultra hd, motion graphic, backdrop, cinematic, star dust, golden dust, floating particles, night, dark, shine, glow, bright, yellow, amber, fantasy, event, intro, presentation, special effect",
+    category: 8,
+  },
+  // 10. Strong Rain at Night (URL 197058599)
+  {
+    filename: "strong_rain_at_night_cinematic_4k.mp4",
+    title: "Heavy Cinematic Storm Rain at Night Background 4K Loop",
+    keywords:
+      "rain, night, strong rain, heavy rain, storm, downpour, dark, water droplets, wet, weather, raining, cinematic, moody, night city, atmosphere, motion, splashing, puddle, drops, slow motion, thunderstorm, nature, fluid, liquid, autumn, winter, window, lens, cold, shower, spray, precipitation, overcast, darkness, urban, mist, haze, 4k, ultra hd, background, backdrop, clean, street, asphalt, ripple, wind, reflection, overlay, visual effect",
+    category: 8,
+  },
+  // 11. Abstract Glowing Neon Arrows (URL 381536144)
+  {
+    filename: "abstract_glowing_neon_arrows_loop_4k.mp4",
+    title: "Futuristic Blue Purple Neon Arrows Chevron Tunnel 4K Loop",
+    keywords:
+      "neon arrows, abstract, glowing, motion design, blue, purple, magenta, cyan, chevron, tunnel, speed, futuristic, cyber, technology, loop, seamless, direction, forward, flight, laser, light, show, stage, vj loop, synthwave, retrowave, nightclub, party, digital, data, highway, virtual reality, sci fi, energy, beam, line, modern, backdrop, background, 4k, ultra hd, motion graphic, floor reflection, corridor, space, geometric, innovation, power, vibrant",
+    category: 8,
+  },
+  // 12. 4K Abstract Swirls (URL 220530931)
+  {
+    filename: "abstract_chromatic_swirls_flow_4k.mp4",
+    title: "Chromatic Glowing Fluid Swirls Rainbow Ribbon Flow 4K",
+    keywords:
+      "abstract swirls, swirls, abstract, fluid, chromatic, rainbow, colorful, flow, wave, spiral, helix, curved, smooth, motion, loop, seamless, 3d, dynamic, vibrant, ribbon, gradient, modern, aesthetic, holographic, liquid, design, art, creative, concept, digital, energy, spectrum, neon, glow, shine, violet, cyan, magenta, orange, backdrop, background, wallpaper, 4k, ultra hd, presentation, intro, minimal, overlay, visual effect",
     category: 8,
   },
 ];

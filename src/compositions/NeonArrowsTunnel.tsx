@@ -2,17 +2,15 @@ import React, { useEffect, useRef } from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 
 export interface NeonArrowsProps {
-  arrowCount: number;
-  primaryColor: string; // e.g. "#3b82f6" (Blue)
-  secondaryColor: string; // e.g. "#a855f7" (Purple)
-  speed: number;
+  arrowCount?: number;
+  primaryColor?: string; // Blue / Cyan
+  secondaryColor?: string; // Purple / Magenta
 }
 
 export const defaultNeonArrowsProps: NeonArrowsProps = {
-  arrowCount: 16,
+  arrowCount: 22,
   primaryColor: "#00f2fe",
-  secondaryColor: "#ec4899",
-  speed: 1,
+  secondaryColor: "#c084fc",
 };
 
 export const NeonArrowsTunnel: React.FC<NeonArrowsProps> = ({
@@ -32,104 +30,172 @@ export const NeonArrowsTunnel: React.FC<NeonArrowsProps> = ({
 
     ctx.clearRect(0, 0, width, height);
 
-    // Deep Dark Void Background
+    // Deep Dark Cyber Cyberpunk Atmosphere
     const bg = ctx.createRadialGradient(
-      width / 2,
-      height / 2,
+      width * 0.5,
+      height * 0.5,
       10,
-      width / 2,
-      height / 2,
-      width * 0.7
+      width * 0.5,
+      height * 0.5,
+      width * 0.75
     );
-    bg.addColorStop(0, "#080614");
-    bg.addColorStop(1, "#020107");
+    bg.addColorStop(0, "#070414");
+    bg.addColorStop(0.5, "#030109");
+    bg.addColorStop(1, "#010004");
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, width, height);
 
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const loopProgress = (frame % (durationInFrames / 4)) / (durationInFrames / 4);
+    const centerX = width * 0.5;
+    const centerY = height * 0.46;
+    const floorY = height * 0.65;
 
-    // Center focal point glow
-    const centerGlow = ctx.createRadialGradient(centerX, centerY, 5, centerX, centerY, 180);
-    centerGlow.addColorStop(0, primaryColor + "aa");
-    centerGlow.addColorStop(0.5, secondaryColor + "44");
-    centerGlow.addColorStop(1, "transparent");
+    // Continuous seamless flight through the tunnel
+    const progress = (frame / durationInFrames); // 0 to 1
+
+    ctx.globalCompositeOperation = "screen";
+
+    // Horizon vanishing point core glow
+    const centerGlow = ctx.createRadialGradient(centerX, centerY, 5, centerX, centerY, 280);
+    centerGlow.addColorStop(0, "rgba(255, 255, 255, 0.7)");
+    centerGlow.addColorStop(0.3, "rgba(0, 242, 254, 0.4)");
+    centerGlow.addColorStop(0.7, "rgba(192, 132, 252, 0.2)");
+    centerGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
     ctx.fillStyle = centerGlow;
     ctx.fillRect(0, 0, width, height);
 
-    // Draw tunnel arrows moving forward in 3D perspective
+    // Render 3D Flying Chevron Arrows
     for (let i = 0; i < arrowCount; i++) {
-      // Perspective z-distribution
-      const p = ((i + loopProgress) % arrowCount) / arrowCount;
-      const zScale = Math.pow(p, 2.5); // Exponential perspective growth
+      // Depth from 0 (horizon) to 1 (passed camera)
+      const rawZ = (i / arrowCount + progress) % 1.0;
+      const z = Math.pow(rawZ, 2.5); // Perspective acceleration
+      if (z < 0.015) continue;
 
-      if (zScale < 0.02) continue;
+      const scale = z * (width * 0.55);
+      const alpha = Math.min(1.0, z * 2.5) * (1 - Math.pow(rawZ, 6)); // Fade at distance and near lens
 
-      const arrowWidth = width * 0.65 * zScale;
-      const arrowHeight = height * 0.35 * zScale;
-      const chevronDepth = arrowHeight * 0.75;
-      const lineWidth = Math.max(2, 14 * zScale);
-      const alpha = Math.min(1, Math.pow(p, 1.2));
+      // Alternate Blue and Purple
+      const isBlue = i % 2 === 0;
+      const coreColor = isBlue ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 245, 255, 0.95)";
+      const glowColor = isBlue ? "rgba(0, 242, 254, 0.85)" : "rgba(217, 70, 239, 0.85)";
+      const outerHalo = isBlue ? "rgba(59, 130, 246, 0.4)" : "rgba(168, 85, 247, 0.4)";
 
-      // Color interpolation along depth
-      const grad = ctx.createLinearGradient(
-        centerX - arrowWidth / 2,
-        centerY,
-        centerX + arrowWidth / 2,
-        centerY
-      );
-      grad.addColorStop(0, primaryColor);
-      grad.addColorStop(0.5, secondaryColor);
-      grad.addColorStop(1, primaryColor);
+      // Draw V-Shaped / Chevron Arrow
+      // Vertex points of the chevron arrow pointing forward (down tunnel)
+      const tipY = centerY - scale * 0.45;
+      const wingY = centerY + scale * 0.35;
+      const leftX = centerX - scale;
+      const rightX = centerX + scale;
 
       ctx.save();
-      ctx.lineWidth = lineWidth;
-      ctx.strokeStyle = grad;
-      ctx.globalAlpha = alpha;
-      ctx.shadowColor = p > 0.5 ? primaryColor : secondaryColor;
-      ctx.shadowBlur = 25 * zScale;
+
+      // Multi-pass neon tube stroke
+      // A. Wide outer bloom
+      ctx.beginPath();
+      ctx.moveTo(leftX, wingY);
+      ctx.lineTo(centerX, tipY);
+      ctx.lineTo(rightX, wingY);
+      ctx.strokeStyle = outerHalo;
+      ctx.lineWidth = Math.max(4, z * 42);
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
-
-      // Draw Top Chevron Arrow (> pointing into screen, or < pointing towards viewer)
-      ctx.beginPath();
-      ctx.moveTo(centerX - arrowWidth / 2, centerY - arrowHeight / 2 + chevronDepth);
-      ctx.lineTo(centerX, centerY - arrowHeight / 2);
-      ctx.lineTo(centerX + arrowWidth / 2, centerY - arrowHeight / 2 + chevronDepth);
       ctx.stroke();
 
-      // Draw Bottom Mirror Chevron Arrow
+      // B. Vivid Neon Color Core
       ctx.beginPath();
-      ctx.moveTo(centerX - arrowWidth / 2, centerY + arrowHeight / 2 - chevronDepth);
-      ctx.lineTo(centerX, centerY + arrowHeight / 2);
-      ctx.lineTo(centerX + arrowWidth / 2, centerY + arrowHeight / 2 - chevronDepth);
+      ctx.moveTo(leftX, wingY);
+      ctx.lineTo(centerX, tipY);
+      ctx.lineTo(rightX, wingY);
+      ctx.strokeStyle = glowColor;
+      ctx.lineWidth = Math.max(2, z * 20);
       ctx.stroke();
+
+      // C. Blinding White Tube Spine
+      ctx.beginPath();
+      ctx.moveTo(leftX, wingY);
+      ctx.lineTo(centerX, tipY);
+      ctx.lineTo(rightX, wingY);
+      ctx.strokeStyle = coreColor;
+      ctx.lineWidth = Math.max(1, z * 8);
+      ctx.stroke();
+
+      // Floor Reflection of the Arrow
+      if (wingY < floorY || tipY < floorY) {
+        const refAlpha = alpha * 0.28 * z;
+        const refTipY = floorY + (floorY - tipY) * 0.7;
+        const refWingY = floorY + (floorY - wingY) * 0.7;
+
+        if (refWingY < height || refTipY < height) {
+          ctx.beginPath();
+          ctx.moveTo(leftX, refWingY);
+          ctx.lineTo(centerX, refTipY);
+          ctx.lineTo(rightX, refWingY);
+          ctx.strokeStyle = glowColor.replace(/[\d\.]+\)$/, `${refAlpha})`);
+          ctx.lineWidth = Math.max(2, z * 28);
+          ctx.stroke();
+        }
+      }
 
       ctx.restore();
     }
 
-    // Vignette
-    const vignette = ctx.createRadialGradient(
-      centerX,
-      centerY,
-      width * 0.3,
-      centerX,
-      centerY,
-      width * 0.75
-    );
-    vignette.addColorStop(0, "transparent");
-    vignette.addColorStop(1, "rgba(0, 0, 0, 0.8)");
-    ctx.fillStyle = vignette;
-    ctx.fillRect(0, 0, width, height);
+    // Glossy Metallic Floor Overlay
+    ctx.globalCompositeOperation = "source-over";
+    const floorGrad = ctx.createLinearGradient(0, floorY, 0, height);
+    floorGrad.addColorStop(0, "rgba(6, 4, 15, 0.4)");
+    floorGrad.addColorStop(0.3, "rgba(10, 6, 22, 0.25)");
+    floorGrad.addColorStop(1, "rgba(2, 1, 5, 0.8)");
+    ctx.fillStyle = floorGrad;
+    ctx.fillRect(0, floorY, width, height - floorY);
+
+    // Glowing Neon Guideway Lines on the Floor
+    ctx.globalCompositeOperation = "screen";
+    const leftGuideX = centerX - width * 0.38;
+    const rightGuideX = centerX + width * 0.38;
+
+    const lineGrad = ctx.createLinearGradient(centerX, floorY, leftGuideX, height);
+    lineGrad.addColorStop(0, "rgba(0, 242, 254, 0.1)");
+    lineGrad.addColorStop(1, "rgba(0, 242, 254, 0.7)");
+
+    ctx.beginPath();
+    ctx.moveTo(centerX, floorY);
+    ctx.lineTo(leftGuideX, height);
+    ctx.strokeStyle = lineGrad;
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    const lineGradRight = ctx.createLinearGradient(centerX, floorY, rightGuideX, height);
+    lineGradRight.addColorStop(0, "rgba(217, 70, 239, 0.1)");
+    lineGradRight.addColorStop(1, "rgba(217, 70, 239, 0.7)");
+
+    ctx.beginPath();
+    ctx.moveTo(centerX, floorY);
+    ctx.lineTo(rightGuideX, height);
+    ctx.strokeStyle = lineGradRight;
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.globalCompositeOperation = "source-over";
   }, [frame, width, height, durationInFrames, arrowCount, primaryColor, secondaryColor]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={width}
-      height={height}
-      style={{ width: "100%", height: "100%", display: "block" }}
-    />
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        backgroundColor: "#010004",
+        overflow: "hidden",
+      }}
+    >
+      <canvas
+        ref={canvasRef}
+        width={width}
+        height={height}
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "block",
+        }}
+      />
+    </div>
   );
 };
