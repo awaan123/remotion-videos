@@ -1,0 +1,21 @@
+{
+  "name": "adobe-stock-remotion-factory",
+  "version": "1.0.0",
+  "description": "Programmatic Motion Graphics Factory for Adobe Stock using Remotion",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render CyberGrid out/cyber_grid_blue_4k.mp4",
+    "render:all": "node scripts/render-batch.mjs",
+    "generate:csv": "node scripts/generate-csv.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.3.0"
+  }
+}

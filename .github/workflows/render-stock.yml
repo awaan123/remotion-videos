@@ -1,0 +1,36 @@
+name: Render Adobe Stock Videos
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install System Dependencies for Chromium / Remotion
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libnss3 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libgbm1 libasound2
+
+      - name: Install Node Modules
+        run: npm ci
+
+      - name: Render All 4K Stock Presets & Generate Metadata
+        run: npm run render:all
+
+      - name: Upload Stock Video Pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: adobe-stock-renders
+          path: out/
