@@ -38,7 +38,7 @@ export const TARGET_REQUESTED_PRESETS: StockPresetItem[] = [
       "seamless loop, abstract futuristic, communication, neon low poly, motion background, digital network, cyber technology, wireframe, connecting nodes, data transfer, 4k, ultra hd",
     category: 15,
   },
-  // 5. Blue Neon Glowing Stripes (URL 5)
+  // 4. Blue Neon Glowing Stripes (URL 5)
   {
     id: "BlueNeonStripes",
     filename: "blue_neon_glowing_stripes_motion_4k.mp4",
@@ -48,4 +48,15 @@ export const TARGET_REQUESTED_PRESETS: StockPresetItem[] = [
       "seamless loop, blue neon, glowing stripes, abstract modern, motion background, speed lines, light bars, futuristic, technology, cyber beam, corporate, 4k, ultra hd",
     category: 15,
   },
+  // 5. Rainbow Colored Ink in Water (URL 327663872)
+  {
+    id: "RainbowInkInWater",
+    filename: "rainbow_colored_ink_in_water_dispersion_4k.mp4",
+    compositionId: "RainbowInkInWater",
+    title: "Rainbow Colored Ink in Water Fluid Dispersion Slow Motion 4K",
+    keywords:
+      "rainbow ink, ink in water, fluid dispersion, slow motion, acrylic colors, swirling smoke plumes, liquid vortex, chromatic splash, watercolor burst, 4k, ultra hd, high speed, abstract art",
+    category: 15,
+  },
 ];
+

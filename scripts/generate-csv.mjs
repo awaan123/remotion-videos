@@ -30,6 +30,13 @@ const presets = [
       "seamless loop, blue neon, glowing stripes, abstract modern, motion background, speed lines, light bars, futuristic, technology, cyber beam, corporate, 4k, ultra hd",
     category: 15,
   },
+  {
+    filename: "rainbow_colored_ink_in_water_dispersion_4k.mp4",
+    title: "Rainbow Colored Ink in Water Fluid Dispersion Slow Motion 4K",
+    keywords:
+      "rainbow ink, ink in water, fluid dispersion, slow motion, acrylic colors, swirling smoke plumes, liquid vortex, chromatic splash, watercolor burst, 4k, ultra hd, high speed, abstract art",
+    category: 15,
+  },
 ];
 
 const outDir = path.resolve("./out");

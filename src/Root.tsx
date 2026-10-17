@@ -4,6 +4,7 @@ import { SoftGradientLoop, defaultGradientProps } from "./compositions/SoftGradi
 import { WaterDropletsExplosion, defaultWaterDropletsProps } from "./compositions/WaterDropletsExplosion";
 import { NeonLowPolyMesh, defaultLowPolyProps } from "./compositions/NeonLowPolyMesh";
 import { BlueNeonStripes, defaultNeonStripesProps } from "./compositions/BlueNeonStripes";
+import { RainbowInkInWater } from "./compositions/RainbowInkInWater";
 import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
@@ -100,6 +101,19 @@ export const Root: React.FC = () => {
         defaultProps={{
           ...defaultNeonStripesProps,
           stripeCount: 16,
+        }}
+      />
+
+      {/* 5. Rainbow Colored Ink in Water Fluid Dispersion (URL 327663872) */}
+      <Composition
+        id="RainbowInkInWater"
+        component={RainbowInkInWater}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          backgroundColor: "#000000",
         }}
       />
 

@@ -19,6 +19,10 @@ const presets = [
     id: "BlueNeonStripes",
     filename: "blue_neon_glowing_stripes_motion_4k.mp4",
   },
+  {
+    id: "RainbowInkInWater",
+    filename: "rainbow_colored_ink_in_water_dispersion_4k.mp4",
+  },
 ];
 
 const outDir = path.resolve("./out");
