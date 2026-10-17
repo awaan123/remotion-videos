@@ -4,7 +4,6 @@ import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
 import { SoftGradientLoop, defaultGradientProps } from "./compositions/SoftGradientLoop";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
-import { STOCK_PRESETS } from "./presets";
 
 export const Root: React.FC = () => {
   return (
@@ -99,20 +98,6 @@ export const Root: React.FC = () => {
           amplitude: 100,
         }}
       />
-
-      {/* Preset Variations */}
-      {STOCK_PRESETS.map((preset) => (
-        <Composition
-          key={preset.id}
-          id={preset.id}
-          component={CyberGrid}
-          durationInFrames={300}
-          fps={30}
-          width={3840}
-          height={2160}
-          defaultProps={preset.props}
-        />
-      ))}
     </>
   );
 };
