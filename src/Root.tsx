@@ -1,8 +1,11 @@
 import React from "react";
 import { Composition } from "remotion";
+import { SoftGradientLoop, defaultGradientProps } from "./compositions/SoftGradientLoop";
+import { WaterDropletsExplosion, defaultWaterDropletsProps } from "./compositions/WaterDropletsExplosion";
+import { NeonLowPolyMesh, defaultLowPolyProps } from "./compositions/NeonLowPolyMesh";
+import { BlueNeonStripes, defaultNeonStripesProps } from "./compositions/BlueNeonStripes";
 import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
-import { SoftGradientLoop, defaultGradientProps } from "./compositions/SoftGradientLoop";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
 import { NeonArrowsTunnel, defaultNeonArrowsProps } from "./compositions/NeonArrowsTunnel";
 import { HyperspaceWarp, defaultHyperspaceProps } from "./compositions/HyperspaceWarp";
@@ -10,55 +13,7 @@ import { HyperspaceWarp, defaultHyperspaceProps } from "./compositions/Hyperspac
 export const Root: React.FC = () => {
   return (
     <>
-      {/* 1. Cyber Grid (Landscape 4K & Vertical) */}
-      <Composition
-        id="CyberGrid"
-        component={CyberGrid}
-        durationInFrames={300}
-        fps={30}
-        width={3840}
-        height={2160}
-        defaultProps={defaultCyberGridProps}
-      />
-      <Composition
-        id="CyberGrid-Vertical"
-        component={CyberGrid}
-        durationInFrames={300}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{
-          ...defaultCyberGridProps,
-          gridDensity: 20,
-          starCount: 100,
-        }}
-      />
-
-      {/* 2. Gold Awards Particles & Bokeh (Landscape 4K & Vertical) */}
-      <Composition
-        id="GoldParticles"
-        component={GoldParticles}
-        durationInFrames={300}
-        fps={30}
-        width={3840}
-        height={2160}
-        defaultProps={defaultGoldParticleProps}
-      />
-      <Composition
-        id="GoldParticles-Vertical"
-        component={GoldParticles}
-        durationInFrames={300}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{
-          ...defaultGoldParticleProps,
-          particleCount: 120,
-          bokehCount: 20,
-        }}
-      />
-
-      {/* 3. Soft Blurred Gradient Cycle (Landscape 4K & Vertical) */}
+      {/* 1. Abstract Blurred Magenta Blue Orange Gradient Cycle (URL 1 & 2) */}
       <Composition
         id="SoftGradientLoop"
         component={SoftGradientLoop}
@@ -78,7 +33,95 @@ export const Root: React.FC = () => {
         defaultProps={defaultGradientProps}
       />
 
-      {/* 4. Digital Tech Audio Wave / Optical Fiber (Landscape 4K & Vertical) */}
+      {/* 2. Explosion of Water Droplets Slow Motion on Black (URL 3) */}
+      <Composition
+        id="WaterDropletsExplosion"
+        component={WaterDropletsExplosion}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultWaterDropletsProps}
+      />
+      <Composition
+        id="WaterDropletsExplosion-Vertical"
+        component={WaterDropletsExplosion}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          ...defaultWaterDropletsProps,
+          dropletCount: 220,
+        }}
+      />
+
+      {/* 3. Futuristic Communication Neon Low-Poly Mesh (URL 4) */}
+      <Composition
+        id="NeonLowPolyMesh"
+        component={NeonLowPolyMesh}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultLowPolyProps}
+      />
+      <Composition
+        id="NeonLowPolyMesh-Vertical"
+        component={NeonLowPolyMesh}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          ...defaultLowPolyProps,
+          cols: 16,
+          rows: 24,
+        }}
+      />
+
+      {/* 4. Blue Neon Glowing Stripes Abstract Modern Motion (URL 5) */}
+      <Composition
+        id="BlueNeonStripes"
+        component={BlueNeonStripes}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultNeonStripesProps}
+      />
+      <Composition
+        id="BlueNeonStripes-Vertical"
+        component={BlueNeonStripes}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          ...defaultNeonStripesProps,
+          stripeCount: 16,
+        }}
+      />
+
+      {/* Previously created high-value templates */}
+      <Composition
+        id="CyberGrid"
+        component={CyberGrid}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultCyberGridProps}
+      />
+      <Composition
+        id="GoldParticles"
+        component={GoldParticles}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={defaultGoldParticleProps}
+      />
       <Composition
         id="AudioWaveTech"
         component={AudioWaveTech}
@@ -89,20 +132,6 @@ export const Root: React.FC = () => {
         defaultProps={defaultAudioWaveProps}
       />
       <Composition
-        id="AudioWaveTech-Vertical"
-        component={AudioWaveTech}
-        durationInFrames={300}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{
-          ...defaultAudioWaveProps,
-          amplitude: 100,
-        }}
-      />
-
-      {/* 5. Neon Chevron Arrows Tunnel (Landscape 4K & Vertical) */}
-      <Composition
         id="NeonArrowsTunnel"
         component={NeonArrowsTunnel}
         durationInFrames={300}
@@ -112,20 +141,6 @@ export const Root: React.FC = () => {
         defaultProps={defaultNeonArrowsProps}
       />
       <Composition
-        id="NeonArrowsTunnel-Vertical"
-        component={NeonArrowsTunnel}
-        durationInFrames={300}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{
-          ...defaultNeonArrowsProps,
-          arrowCount: 12,
-        }}
-      />
-
-      {/* 6. Hyperspace Lightspeed Jump Tunnel (Landscape 4K & Vertical) */}
-      <Composition
         id="HyperspaceWarp"
         component={HyperspaceWarp}
         durationInFrames={300}
@@ -133,18 +148,6 @@ export const Root: React.FC = () => {
         width={3840}
         height={2160}
         defaultProps={defaultHyperspaceProps}
-      />
-      <Composition
-        id="HyperspaceWarp-Vertical"
-        component={HyperspaceWarp}
-        durationInFrames={300}
-        fps={30}
-        width={1080}
-        height={1920}
-        defaultProps={{
-          ...defaultHyperspaceProps,
-          starCount: 200,
-        }}
       />
     </>
   );

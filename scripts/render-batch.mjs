@@ -4,28 +4,20 @@ import path from "path";
 
 const presets = [
   {
-    id: "CyberGrid",
-    filename: "cyber_grid_blue_4k.mp4",
-  },
-  {
-    id: "GoldParticles",
-    filename: "gold_particles_awards_bokeh_4k.mp4",
-  },
-  {
     id: "SoftGradientLoop",
     filename: "soft_gradient_magenta_blue_cycle_4k.mp4",
   },
   {
-    id: "AudioWaveTech",
-    filename: "optical_fiber_audio_wave_tech_4k.mp4",
+    id: "WaterDropletsExplosion",
+    filename: "explosion_water_droplets_slow_motion_4k.mp4",
   },
   {
-    id: "NeonArrowsTunnel",
-    filename: "neon_arrows_tunnel_4k.mp4",
+    id: "NeonLowPolyMesh",
+    filename: "neon_low_poly_communication_mesh_4k.mp4",
   },
   {
-    id: "HyperspaceWarp",
-    filename: "hyperspace_lightspeed_tunnel_4k.mp4",
+    id: "BlueNeonStripes",
+    filename: "blue_neon_glowing_stripes_motion_4k.mp4",
   },
 ];
 
@@ -34,7 +26,7 @@ if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
 }
 
-console.log(`Starting Batch Render of ${presets.length} Master 4K Stock Assets...`);
+console.log(`Starting Batch Render of ${presets.length} Requested 4K Stock Videos...`);
 
 for (let i = 0; i < presets.length; i++) {
   const p = presets[i];
@@ -54,4 +46,4 @@ for (let i = 0; i < presets.length; i++) {
 // Generate companion CSV
 console.log("\nGenerating companion Adobe Stock CSV...");
 execSync("node scripts/generate-csv.mjs", { stdio: "inherit" });
-console.log("All assets and metadata CSV ready in ./out");
+console.log("\nAll requested 4K videos and metadata CSV ready in ./out");
