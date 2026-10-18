@@ -15,6 +15,13 @@ import { OrangeJuiceExplosion } from "./compositions/OrangeJuiceExplosion";
 import { RedBlueParticleRing } from "./compositions/RedBlueParticleRing";
 import { ColoredInkSplash } from "./compositions/ColoredInkSplash";
 import { PlasmaRing3D } from "./compositions/PlasmaRing3D";
+import { AbstractFireLoop } from "./compositions/AbstractFireLoop";
+import { RisingSmokeFog } from "./compositions/RisingSmokeFog";
+import { OpticalFiberParticles } from "./compositions/OpticalFiberParticles";
+import { DarkLiquidRipples } from "./compositions/DarkLiquidRipples";
+import { TornPaperGreenScreen } from "./compositions/TornPaperGreenScreen";
+import { BrushStrokeTransition } from "./compositions/BrushStrokeTransition";
+import { ThickSmokeFireFog } from "./compositions/ThickSmokeFireFog";
 import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
@@ -85,9 +92,8 @@ export const Root: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{
-          ...defaultLowPolyProps,
-          cols: 16,
-          rows: 24,
+          nodeCount: 80,
+          maxDistance: 220,
         }}
       />
 
@@ -109,8 +115,8 @@ export const Root: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{
-          ...defaultNeonStripesProps,
-          stripeCount: 16,
+          beamCount: 18,
+          blockCount: 28,
         }}
       />
 
@@ -256,6 +262,101 @@ export const Root: React.FC = () => {
         height={2160}
         defaultProps={{
           particleCount: 900,
+        }}
+      />
+
+      {/* 16. Full-Frame Abstract Fire in Slow Motion (URL 122374491) */}
+      <Composition
+        id="AbstractFireLoop"
+        component={AbstractFireLoop}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          flameCount: 48,
+          emberCount: 200,
+        }}
+      />
+
+      {/* 17. Rising Smoke Fog Clouds Loop Overlay (URL 365354158) */}
+      <Composition
+        id="RisingSmokeFog"
+        component={RisingSmokeFog}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          plumeCount: 18,
+          puffCount: 64,
+        }}
+      />
+
+      {/* 18. Abstract Blue Purple Optical Fiber Particles (URL 209351460) */}
+      <Composition
+        id="OpticalFiberParticles"
+        component={OpticalFiberParticles}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          fiberCount: 38,
+          pulseCount: 140,
+        }}
+      />
+
+      {/* 19. 3D Dark Liquid Concentric Ripples Loop (URL 479332627) */}
+      <Composition
+        id="DarkLiquidRipples"
+        component={DarkLiquidRipples}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          rippleRings: 32,
+          centerCount: 3,
+        }}
+      />
+
+      {/* 20. Stop Motion Torn Paper Transitions Green Screen (URL 510624334) */}
+      <Composition
+        id="TornPaperGreenScreen"
+        component={TornPaperGreenScreen}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          stripCount: 7,
+        }}
+      />
+
+      {/* 21. Brush Stroke B&W Transition Paint Splash (URL 212122940) */}
+      <Composition
+        id="BrushStrokeTransition"
+        component={BrushStrokeTransition}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          strokeCount: 14,
+        }}
+      />
+
+      {/* 22. Thick Smoke Fog and Fire Overlay (URL 468677183) */}
+      <Composition
+        id="ThickSmokeFireFog"
+        component={ThickSmokeFireFog}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          clusterCount: 42,
         }}
       />
 

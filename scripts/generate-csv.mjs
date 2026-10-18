@@ -138,6 +138,62 @@ export const presets = [
       "plasma ring, dark background, animation, 3d, energy, toroid, solar flare, electric, glowing, circle, loop, seamless, fire, corona, coronal loop, dynamic, high energy, neon, futuristic, fusion, magnetic field, power, heat, hot, burning, sci fi, science fiction, 4k, ultra hd, motion graphics, particle sparks, sun, outer space, cosmic, bright, rays, vortex, force field, yellow, orange, magenta, abstract, backdrop, presentation, intro, visual effect, element, screensaver, cinematic",
     category: 8,
   },
+  // 18. Full-Frame Abstract Fire in Slow Motion (URL 122374491)
+  {
+    filename: "full_frame_abstract_fire_slow_motion_loop_4k.mp4",
+    title: "Abstract Fire Roaring Flame Slow Motion Seamless 4K Loop",
+    keywords:
+      "fire, flames, abstract fire, slow motion, loop, seamless, roaring, burning, heat, hot, blaze, inferno, embers, sparks, combustion, energy, dynamic, warm, orange, yellow, red, black background, full frame, cinematic, vfx, overlay, visual effect, danger, power, bonfire, wildfire, atmospheric, glow, glowing, dark, hell, ignite, smoke, motion background, 4k, ultra hd, motion graphics, fluid, turbulence, heat distortion, light, torch, fireplace, screensaver",
+    category: 8,
+  },
+  // 19. Rising Smoke Fog Clouds Loop Overlay (URL 365354158)
+  {
+    filename: "rising_smoke_fog_clouds_overlay_loop_4k.mp4",
+    title: "Rising Smoke and Fog Clouds Ethereal Vfx Overlay 4K Loop",
+    keywords:
+      "smoke, fog, clouds, rising smoke, mist, haze, overlay, vfx, visual effect, loop, seamless, dark background, isolated, black background, atmospheric, dynamic, slow motion, fluid, turbulence, white smoke, steam, mysterious, spooky, cinematic, moody, soft, ethereal, vapor, billow, motion background, 4k, ultra hd, motion graphics, clean, airflow, chimney, dust, backdrop, texture, ambient, ghost, smoke plume, swirl, wisps, transparency, screen saver, element, flow, abstract",
+    category: 8,
+  },
+  // 20. Abstract Blue Purple Optical Fiber Particles (URL 209351460)
+  {
+    filename: "optical_fiber_cable_blue_purple_particles_4k.mp4",
+    title: "Optical Fiber Cable Glowing Blue Purple Data Stream 4K Loop",
+    keywords:
+      "optical fiber, particles, blue, purple, fiber optic, cable, data stream, high speed, internet, broadband, telecommunications, networking, technology, cyber, digital, connection, transmission, light beams, glowing, communication, futuristic, 4k, ultra hd, motion background, loop, seamless, information, big data, network, glass fiber, photonics, electric, laser, science, innovation, infrastructure, backdrop, presentation, line art, modern, cloud, 5g, server, abstract, flow, visual effect, element, screensaver, computer",
+    category: 19,
+  },
+  // 21. 3D Dark Liquid Concentric Ripples Loop (URL 479332627)
+  {
+    filename: "dark_liquid_concentric_ripples_abstract_surface_4k.mp4",
+    title: "3D Dark Liquid Concentric Ripples Abstract Surface 4K Loop",
+    keywords:
+      "dark liquid, concentric ripples, ripples, waves, 3d render, abstract pattern, liquid, water ripples, dark black, obsidian, elegant, minimalist, metallic, fluid, surface, reflection, seamless, loop, motion background, 4k, ultra hd, corporate, business presentation, backdrop, technology, modern, clean, subtle, motion graphics, luxury, calm, tranquil, vibration, droplet impact, circular, rings, monochrome, smooth, ripple effect, wallpaper, dynamic, texture, chrome, water, drop, visual effect, intro, design, studio",
+    category: 8,
+  },
+  // 22. Stop Motion Torn Paper Transitions Green Screen (URL 510624334)
+  {
+    filename: "stop_motion_torn_paper_rip_transition_green_screen_4k.mp4",
+    title: "Stop Motion Torn Paper Rip Transition on Chroma Green 4K",
+    keywords:
+      "stop motion, torn paper, paper rip, transition, green screen, chroma key, background, paper tear, collage, paper texture, cardboard, rip effect, reveal, wipe, creative, graphic design, animation, scrap, jagged edge, handcrafted, cutout, dynamic, overlay, visual effect, 4k, ultra hd, motion graphics, artistic, vintage, rough, fibrous, edge, handmade, retro, video transition, vlog, presentation, cinematic, paper sheet, peeled, matte, clean, green background, footage, element, isolated, modern, intro, vfx",
+    category: 8,
+  },
+  // 23. Brush Stroke B&W Transition Paint Splash (URL 212122940)
+  {
+    filename: "brush_stroke_paint_splash_bw_transition_4k.mp4",
+    title: "Black and White Paint Brush Stroke Wipe Transition 4K",
+    keywords:
+      "brush stroke, black and white, transition, paint splash, abstract background, ad, presentation, wipe, reveal, acrylic, ink, matte, alpha, texture, artistic, creative, rough, bristle, handcrafted, dynamic, motion graphics, 4k, ultra hd, video transition, vfx, overlay, graphic design, clean, minimal, monochrome, contrast, brush, stroke, ink splatter, modern, stylish, corporate, intro, opener, promo, element, visual effect, paint, canvas, street art, drawing, banner, template, backdrop",
+    category: 8,
+  },
+  // 24. Thick Smoke Fog and Fire Overlay (URL 468677183)
+  {
+    filename: "thick_gray_smoke_fire_fog_overlay_4k.mp4",
+    title: "Thick Gray Smoke and Fiery Fog Rising Overlay 4K Loop",
+    keywords:
+      "thick smoke, black background, gray fog, smoke, fire, rising smoke, mist, haze, overlay, vfx, visual effect, loop, seamless, dark background, isolated, embers, burning, flame, cinematic, moody, atmospheric, turbulence, slow motion, billow, steam, vapor, dramatic, danger, disaster, heat, inferno, 4k, ultra hd, motion graphics, backdrop, chimney, ash, cloud, dense smoke, wildfire, spooky, ghost, texture, dynamic, screen saver, element, flow, abstract, presentation",
+    category: 8,
+  },
 ];
 
 const outDir = path.resolve("./out");

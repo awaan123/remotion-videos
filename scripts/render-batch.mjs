@@ -2,13 +2,13 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 
-// Define compositions to render in Batch 04
+// Define compositions to render in Batch 05
 const presets = [
-  { id: "OrionNebulaFlythrough", filename: "flying_through_orion_nebula_deep_space_4k.mp4" },
-  { id: "OrangeJuiceExplosion", filename: "explosion_orange_juice_slow_motion_splash_4k.mp4" },
-  { id: "RedBlueParticleRing", filename: "red_blue_particles_energy_circle_ring_intro_4k.mp4" },
-  { id: "ColoredInkSplash", filename: "splash_colored_ink_burst_slow_motion_4k.mp4" },
-  { id: "PlasmaRing3D", filename: "plasma_ring_energy_toroid_solar_flare_3d_4k.mp4" },
+  { id: "AbstractFireLoop", filename: "full_frame_abstract_fire_slow_motion_loop_4k.mp4" },
+  { id: "RisingSmokeFog", filename: "rising_smoke_fog_clouds_overlay_loop_4k.mp4" },
+  { id: "OpticalFiberParticles", filename: "optical_fiber_cable_blue_purple_particles_4k.mp4" },
+  { id: "DarkLiquidRipples", filename: "dark_liquid_concentric_ripples_abstract_surface_4k.mp4" },
+  { id: "TornPaperGreenScreen", filename: "stop_motion_torn_paper_rip_transition_green_screen_4k.mp4" },
 ];
 
 const outDir = path.resolve("./out");
