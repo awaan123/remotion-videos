@@ -10,6 +10,11 @@ import { UnderwaterBubblesTurquoise } from "./compositions/UnderwaterBubblesTurq
 import { FireEmbersWind } from "./compositions/FireEmbersWind";
 import { StrongRainNight } from "./compositions/StrongRainNight";
 import { AbstractSwirls4K } from "./compositions/AbstractSwirls4K";
+import { OrionNebulaFlythrough } from "./compositions/OrionNebulaFlythrough";
+import { OrangeJuiceExplosion } from "./compositions/OrangeJuiceExplosion";
+import { RedBlueParticleRing } from "./compositions/RedBlueParticleRing";
+import { ColoredInkSplash } from "./compositions/ColoredInkSplash";
+import { PlasmaRing3D } from "./compositions/PlasmaRing3D";
 import { CyberGrid, defaultCyberGridProps } from "./compositions/CyberGrid";
 import { GoldParticles, defaultGoldParticleProps } from "./compositions/GoldParticles";
 import { AudioWaveTech, defaultAudioWaveProps } from "./compositions/AudioWaveTech";
@@ -185,6 +190,72 @@ export const Root: React.FC = () => {
         height={2160}
         defaultProps={{
           armCount: 18,
+        }}
+      />
+
+      {/* 11. Flying Through the Orion Nebula (URL 174327750) */}
+      <Composition
+        id="OrionNebulaFlythrough"
+        component={OrionNebulaFlythrough}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          starCount: 1400,
+          cloudCount: 36,
+        }}
+      />
+
+      {/* 12. Explosion of Orange Juice in Slow Motion (URL 385117234) */}
+      <Composition
+        id="OrangeJuiceExplosion"
+        component={OrangeJuiceExplosion}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          dropletCount: 1300,
+        }}
+      />
+
+      {/* 13. Red Blue Particles Circle Ring (URL 284677832) */}
+      <Composition
+        id="RedBlueParticleRing"
+        component={RedBlueParticleRing}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          particleCount: 1600,
+        }}
+      />
+
+      {/* 14. Splash of Colored Ink (URL 385110601) */}
+      <Composition
+        id="ColoredInkSplash"
+        component={ColoredInkSplash}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          splashCount: 800,
+        }}
+      />
+
+      {/* 15. Plasma Ring Against Dark Background (URL 353857149) */}
+      <Composition
+        id="PlasmaRing3D"
+        component={PlasmaRing3D}
+        durationInFrames={300}
+        fps={30}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          particleCount: 900,
         }}
       />
 

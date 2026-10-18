@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const presets = [
+export const presets = [
   // 1. Soft Gradient Cycle Loop (URL 444098349)
   {
     filename: "soft_gradient_magenta_blue_cycle_4k.mp4",
@@ -98,6 +98,46 @@ const presets = [
       "abstract swirls, swirls, abstract, fluid, chromatic, rainbow, colorful, flow, wave, spiral, helix, curved, smooth, motion, loop, seamless, 3d, dynamic, vibrant, ribbon, gradient, modern, aesthetic, holographic, liquid, design, art, creative, concept, digital, energy, spectrum, neon, glow, shine, violet, cyan, magenta, orange, backdrop, background, wallpaper, 4k, ultra hd, presentation, intro, minimal, overlay, visual effect",
     category: 8,
   },
+  // 13. Orion Nebula Flythrough (URL 174327750)
+  {
+    filename: "flying_through_orion_nebula_deep_space_4k.mp4",
+    title: "Cosmic Flight Through Glowing Space Nebula Stars 4K Loop",
+    keywords:
+      "flying through, nebula, deep space, stars, cosmic, galaxy, outer space, astronomy, universe, cosmos, interstellar, starfield, astrophotography, science fiction, sci fi, glowing, celestial, starlight, orion nebula, dust cloud, space flight, loop, seamless, 4k, ultra hd, motion background, exploration, colorful, violet, pink, cyan, majestic, cinematic, fantasy, telescope, hubble, james webb, infinite, solar system, voyage, space travel, nebula dust, vortex, cluster, stellar, astrophysics, atmosphere, screensaver, visual effect",
+    category: 16,
+  },
+  // 14. Orange Juice Slow Motion Explosion (URL 385117234)
+  {
+    filename: "explosion_orange_juice_slow_motion_splash_4k.mp4",
+    title: "Orange Juice Splash Burst Slow Motion Fluid Explosion 4K",
+    keywords:
+      "orange juice, explosion, slow motion, isolated, black background, splash, burst, liquid, fluid, fresh, citrus, fruit juice, droplets, high speed, dynamic, healthy, vitamin c, breakfast, beverage, refreshment, macro, food, drink, drop, splash effect, 4k, ultra hd, motion, yellow, orange, pulp, moisture, organic, sweet, raw, delicious, cinematic, freeze frame, clean, purity, hydration, studio shot, realistic, droplets in air, dispersion, physics, visual effect, overlay, element",
+    category: 4,
+  },
+  // 15. Red & Blue Particle Ring Intro (URL 284677832)
+  {
+    filename: "red_blue_particles_energy_circle_ring_intro_4k.mp4",
+    title: "Red and Blue Energy Particle Ring Logo Intro Motion 4K Loop",
+    keywords:
+      "red blue particles, particle ring, circle, intro, logo, motion background, glowing, energy, ring, vortex, toroid, particle stream, loop, seamless, cyber, dual color, neon, contrast, light, beam, 4k, ultra hd, motion graphics, technology, futuristic, backdrop, dynamic, speed, swirl, helix, electric, power, bright, stage, club, show, presentation, dark background, space, cosmic, visual effect, cinematic, element, abstract, particle trail, spinning, force field, round, screensaver",
+    category: 8,
+  },
+  // 16. Colored Ink Splash (URL 385110601)
+  {
+    filename: "splash_colored_ink_burst_slow_motion_4k.mp4",
+    title: "Vibrant Chromatic Ink Splash Burst Slow Motion on Black 4K",
+    keywords:
+      "splash, colored ink, ink burst, fluid collision, slow motion, isolated, black background, paint, acrylic, liquid, colorful, multi colored, drop, dynamic, high speed, crown splash, droplets, motion, artistic, creative, abstract, pigment, vibrant, blend, mixing, flow, texture, saturated, chromatic, 4k, ultra hd, visual effect, element, overlay, cinematic, macro, clean, art, design, backdrop, shockwave, dispersion, physics, freeze frame, studio shot, spray, explosion, motion design, presentation",
+    category: 8,
+  },
+  // 17. 3D Plasma Ring Against Dark Background (URL 353857149)
+  {
+    filename: "plasma_ring_energy_toroid_solar_flare_3d_4k.mp4",
+    title: "3D Plasma Energy Toroid Ring Solar Flare Dark Background 4K",
+    keywords:
+      "plasma ring, dark background, animation, 3d, energy, toroid, solar flare, electric, glowing, circle, loop, seamless, fire, corona, coronal loop, dynamic, high energy, neon, futuristic, fusion, magnetic field, power, heat, hot, burning, sci fi, science fiction, 4k, ultra hd, motion graphics, particle sparks, sun, outer space, cosmic, bright, rays, vortex, force field, yellow, orange, magenta, abstract, backdrop, presentation, intro, visual effect, element, screensaver, cinematic",
+    category: 8,
+  },
 ];
 
 const outDir = path.resolve("./out");
@@ -105,8 +145,22 @@ if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
 }
 
+const targetDir = process.argv[2] ? path.resolve(process.argv[2]) : outDir;
+if (!fs.existsSync(targetDir)) {
+  fs.mkdirSync(targetDir, { recursive: true });
+}
+
+let activePresets = presets;
+if (process.argv[2]) {
+  const dirFiles = fs.readdirSync(targetDir);
+  const mp4Files = dirFiles.filter((f) => f.endsWith(".mp4"));
+  if (mp4Files.length > 0) {
+    activePresets = presets.filter((p) => mp4Files.includes(p.filename));
+  }
+}
+
 const csvHeader = "Filename,Title,Keywords,Category\n";
-const csvRows = presets
+const csvRows = activePresets
   .map(
     (p) =>
       `"${p.filename}","${p.title.replace(/"/g, '""')}","${p.keywords.replace(
@@ -116,12 +170,7 @@ const csvRows = presets
   )
   .join("\n");
 
-const targetDir = process.argv[2] ? path.resolve(process.argv[2]) : outDir;
-if (!fs.existsSync(targetDir)) {
-  fs.mkdirSync(targetDir, { recursive: true });
-}
-
 const outputPath = path.join(targetDir, "adobe_stock_metadata.csv");
 fs.writeFileSync(outputPath, csvHeader + csvRows, "utf-8");
 
-console.log(`Adobe Stock CSV Generated! Saved to: ${outputPath}`);
+console.log(`Adobe Stock CSV Generated (${activePresets.length} items)! Saved to: ${outputPath}`);

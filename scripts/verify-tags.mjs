@@ -1,14 +1,20 @@
 import fs from "fs";
+import path from "path";
 
-const content = fs.readFileSync("out/adobe_stock_metadata.csv", "utf-8").trim();
+const targetPath = process.argv[2] || "out/adobe_stock_metadata.csv";
+const content = fs.readFileSync(targetPath, "utf-8").trim();
 const lines = content.split("\n").slice(1);
 
+console.log(`Inspecting CSV: ${targetPath}`);
 console.log(`Total rows in CSV: ${lines.length}`);
+
+let hasErrors = false;
 
 lines.forEach((line, index) => {
   const match = line.match(/^"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*(\d+)$/);
   if (!match) {
     console.error(`Row ${index + 1} did not match regex pattern!`);
+    hasErrors = true;
     return;
   }
   const [, filename, title, keywordsStr, category] = match;
@@ -22,9 +28,14 @@ lines.forEach((line, index) => {
   console.log(`  Unique Tags: ${uniqueTags.size}`);
 
   if (tags.length !== 49 || uniqueTags.size !== 49) {
-    console.error(`  ERROR: Tag count is not 49!`);
-    process.exit(1);
+    console.error(`  ERROR: Tag count is not 49! (Found ${tags.length} tags, ${uniqueTags.size} unique)`);
+    hasErrors = true;
   }
 });
 
-console.log("\nALL 5 VIDEOS HAVE EXACTLY 49 UNIQUE TAGS AND VALID METADATA!");
+if (hasErrors) {
+  console.error("\nFAIL: Metadata validation encountered errors!");
+  process.exit(1);
+} else {
+  console.log(`\nSUCCESS: ALL ${lines.length} VIDEOS HAVE EXACTLY 49 UNIQUE TAGS AND VALID METADATA!`);
+}
